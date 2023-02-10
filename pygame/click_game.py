@@ -1,14 +1,25 @@
-blob = Actor('character.png')
-blob.topright = 0, 20
+pig = Actor('pig')
+pig.topright = 0, 10
 
 WIDTH = 500
-HEIGHT = blob.height + 20
+HEIGHT = pig.height + 20
 
 def draw():
     screen.clear()
-    blob.draw()
+    pig.draw()
 
 def update():
-    blob.left = blob.left + 2
-    if blob.left > WIDTH:
-        blob.right = 0
+    pig.left = pig.left + 2
+    if pig.left > WIDTH:
+        pig.right = 0
+
+def on_mouse_down(pos):
+    if pig.collidepoint(pos):
+        set_pig_shocked()
+
+def set_pig_normal():
+    pig.image = 'pig'
+
+def set_pig_shocked():
+    pig.image = 'pig2'
+    clock.schedule_unique(set_pig_normal, 1.0)
