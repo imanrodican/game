@@ -49,10 +49,10 @@ def draw():
                                 topleft=(CENTER_X - 65, 150), fontsize=60)
         if show_countdown:
             screen.draw.text(str(count), color="black",
-                                topleft=(CENTER_X - 8. 150), fontsize=60)
+                                topleft=(CENTER_X - 8, 150), fontsize=60)
     else:
         screen.clear()
-        screen.blit("stage", (0, 0)
+        screen.blit("stage", (0, 0))
         screen.draw.text("Score: " +
                             str(score), color="black",
                             topleft=(10, 100))
@@ -61,28 +61,14 @@ def draw():
     return
 
 def reset_dancer():
-    pass
-
-def update_dancer(move):
-    pass
-
-def display_moves():
-    pass
-
-def generate_moves():
-    pass
-
-def countdown():
-    pass
-
-def next_move():
-    pass
-
-def on_key_up(key):
-    pass
-
-def update():
-    pass
+    global game_over
+    if not game_over:
+        dancer.image = "dancer-start"
+        up.image = "up"
+        right.image = "right"
+        down.image = "down"
+        left.image = "left"
+    return
 
 def update_dancer(move):
     global game_over
@@ -103,28 +89,6 @@ def update_dancer(move):
             left.image = "left-lit"
             dancer.image = "dancer-left"
             clock.schedule(reset_dancer, 0.5)
-    return
-
-def reset_dancer():
-    global game_over
-    if not game_over:
-        dancer.image = "dancer-start"
-        up.image = "up"
-        right.image = "right"
-        down.image = "down"
-        left.image = "left"
-    return
-
-def on_key_up(key):
-    global score, game_over, move_list, current_move
-    if key == keys.UP:
-        update_dancer(0)
-    elif key == keys.RIGHT:
-        update_dancer(1)
-    elif key == key.DOWN:
-        update_dancer(2)
-    elif key == keys.LEFT:
-        update_dancer(3)
     return
 
 def display_moves():
@@ -150,16 +114,6 @@ def display_moves():
         show_countdown = False
     return
 
-def countdown():
-    global count, game_over, show_countdown
-    if count > 1:
-        count = count - 1
-        clock.schedule(countdown, 1)
-    else:
-        show_countdown = False
-        display_moves()
-    return
-
 def generate_moves():
     global move_list, dance_length, count
     global show_countdown, say_dance
@@ -174,11 +128,63 @@ def generate_moves():
     countdown()
     return
 
+def countdown():
+    global count, game_over, show_countdown
+    if count > 1:
+        count = count - 1
+        clock.schedule(countdown, 1)
+    else:
+        show_countdown = False
+        display_moves()
+    return
 
+def next_move():
+    global dance_length, current_move, moves_complete
+    if current_move < dance_length - 1:
+        current_move = current_move + 1
+    else:
+        moves_complete = True
+    return
 
+def on_key_up(key):
+    global score, game_over, move_list, current_move
+    if key == keys.UP:
+        update_dancer(0)
+        if move_list[current_move] == 0:
+            score = score + 1
+            next_move()
+        else:
+            game_over = True
+    elif key == keys.RIGHT:
+        update_dancer(1)
+        if move_list[current_move] == 1:
+            score = score + 1
+            next_move()
+        else:
+            game_over = True
+    elif key == key.DOWN:
+        update_dancer(2)
+        if move_list[current_move] == 2:
+            score = score + 1
+            next_move()
+    elif key == keys.LEFT:
+        update_dancer(3)
+        if move_list[current_move] == 3:
+            score = score + 1
+            next_move()
+        else:
+            game_over = True
+    return
 
+generate_moves()
 
-
+def update():
+    global game_over, current_move, moves_complete
+    if not game_over:
+        if moves_complete:
+            generate_moves()
+            moves_complete = False
+            current_move = 0
 
 
 
