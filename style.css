@@ -30,12 +30,12 @@
 }
 #column2 {
      width:300px;
-     float:center;
+     float:left;
      padding:70px;
 }
 #column3 {
     width:300px;
-    float:right;
+    float:left;
     padding:70px;
 }
  .logo {
