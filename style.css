@@ -42,7 +42,7 @@
     width: 100px;
     border-radius: 50%;
     overflow: hidden;
-    margin-top: -6px;
+    margin-top: auto;
     padding: 15px;
     align:left;
 }
