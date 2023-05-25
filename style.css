@@ -46,16 +46,20 @@
     padding: 15px;
     align:left;
 }
+
+#maya {
+  display: block;
+  align:center;
+}
+
 h3 {
   font-family: Gill Sans;
+  margin-bottom: 15px;
+  text-align: center;
 }
+
 h1 {
   font-family: Slackey;
-}
-h1 {text-align: center;}
-h3 {text-align: center;}
-
-h3 { 
-  margin-bottom: 15px;
+  text-align: center;
 }
 
