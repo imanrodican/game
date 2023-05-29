@@ -26,17 +26,17 @@
 #column1 {
      width:300px;
      float:left;
-     padding:70px;
+     padding-left:70px;
 }
 #column2 {
      width:300px;
      float:left;
-     padding:70px;
+     padding-left:70px;
 }
 #column3 {
     width:300px;
     float:left;
-    padding:70px;
+    padding-left: 70px;
 }
  .logo {
     width: 100px;
