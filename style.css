@@ -56,6 +56,11 @@ body {
   background-color: fff1bb;
 }
 
+iframe {
+  display: block;
+  margin: auto;
+}
+
 h3 {
   font-family: Gill Sans;
   margin-bottom: 15px;
