@@ -1,6 +1,6 @@
 #topNav {
   background: #024c58;
-  box-shadow: 0px 1px 10px 10px #b2561e;
+  box-shadow: 0px 1px 10px 10px #BAB395;
   height: auto;
   text-align: center;
   width: 100%;
@@ -53,7 +53,7 @@
 }
 
 body {
-  background-color: #fff1bb;
+  background-color: #FAF7EB;
 }
 
 iframe {
@@ -65,24 +65,29 @@ h3 {
   font-family: Gill Sans;
   margin-bottom: 15px;
   text-align: center;
+  font-color: #024c58;
 }
 
 h1 {
   font-family: Slackey;
   text-align: center;
+  font-color: #024c58;
 }
 
 p {
   font-family: Gill Sans;
   margin: 15px;
+  font-color: #024c58;
 }
 
 ul {
   font-family: Gill Sans;
   margin: 15px;
+  font-color: #0597b2;
 }
 
 ol {
   font-family: Gill Sans;
   margin: 15px;
+  font-color: #0597b2;
 }
