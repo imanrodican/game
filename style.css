@@ -47,6 +47,10 @@
     align:left;
 }
 
+.code {
+  margin: auto;
+}
+
 #maya {
   display: block;
   margin: auto;
